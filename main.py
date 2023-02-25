@@ -6,7 +6,7 @@ from func import PhotoViewer
 
 if len(sys.argv) > 1:
     real_path = os.path.realpath(sys.argv[1])
-    user_file = 'file:///' + real_path
+    user_file = real_path
 
 app = QGuiApplication(sys.argv)
 

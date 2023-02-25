@@ -50,14 +50,14 @@ ApplicationWindow{
             Button{
                 text: "<"
 
-                onClicked: viewer.get_next_image('left')
+                onClicked: viewer.get_next_image(-1)
             }
 
             Button{
                 Layout.alignment: Qt.AlignRight
                 text: ">"
 
-                onClicked: viewer.get_next_image('right')
+                onClicked: viewer.get_next_image(1)
             }
         }
     }

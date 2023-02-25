@@ -42,14 +42,13 @@ class PhotoViewer(QObject):
     @pyqtSlot(str)
     def get_next_image(self, direccion):
         f_thread = threading.Thread(target=self._get_next_image, args=[direccion])
-        f_thread = True
-        f_thread.start()
+        f_thread.daemon = True
+        f_thread.start() 
 
     def _get_next_image(self, direccion):
-        if direccion == 'letf':
-            self.curr_index -= 1
-        else:
-            self.curr_index += 1
+        print(direccion)
+        self.curr_index += int(direccion)
+        print(self.curr_index)
         curr_img = self.image_list[self.curr_index]
         curr_img_path = f'file:///{os.path.join(self.folder, curr_img)}'
         self.changeImage.emit(curr_img_path)
